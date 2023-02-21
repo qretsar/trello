@@ -74,7 +74,7 @@ const Board = ({ route, navigation }) => {
           <Break />
           <InputIcon
             name="plus"
-            placeholder="Add a xlist"
+            placeholder="Add a list"
             onChangeText={onChangeText}
             width="90%"
             onPress={handleCreateNewList}
