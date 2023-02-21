@@ -1,4 +1,4 @@
-import { API_KEY, BASE_URL } from "@env";+
+import { API_KEY, BASE_URL } from "@env";
 
 export const getDataFromTrello = async (url, signal = false) => {
   try {
@@ -22,12 +22,9 @@ export const getDataFromTrello = async (url, signal = false) => {
 };
 
 export const createBoard = async ({ boardName, token: token, func }) => {
-  fetch(
-    `${BASE_URL}/boards/?name=${boardName}&key=${API_KEY}&token=${token}`,
-    {
-      method: "POST",
-    }
-  )
+  fetch(`${BASE_URL}/boards/?name=${boardName}&key=${API_KEY}&token=${token}`, {
+    method: "POST",
+  })
     .then((response) => {
       console.log(`Response: ${response.status} ${response.statusText}`);
       func && func();
@@ -37,12 +34,9 @@ export const createBoard = async ({ boardName, token: token, func }) => {
     .catch((err) => console.error(err));
 };
 export const deleteBoard = async (boardId, token) => {
-  return fetch(
-    `${BASE_URL}/boards/${boardId}?key=${API_KEY}&token=${token}`,
-    {
-      method: "DELETE",
-    }
-  )
+  return fetch(`${BASE_URL}/boards/${boardId}?key=${API_KEY}&token=${token}`, {
+    method: "DELETE",
+  })
     .then((response) => {
       // console.log(`Response: ${response.status} ${response.statusText}`);
       return response.status;
@@ -130,15 +124,12 @@ export const createNewCard = async (listID, cardName, token) => {
     .catch((err) => console.error(err));
 };
 export const deleteCard = async (cardID, token) => {
-  return fetch(
-    `${BASE_URL}/cards/${cardID}?key=${API_KEY}&token=${token}`,
-    {
-      method: "DELETE",
-      headers: {
-        Accept: "application/json",
-      },
-    }
-  )
+  return fetch(`${BASE_URL}/cards/${cardID}?key=${API_KEY}&token=${token}`, {
+    method: "DELETE",
+    headers: {
+      Accept: "application/json",
+    },
+  })
     .then((response) => {
       return response.status;
     })
