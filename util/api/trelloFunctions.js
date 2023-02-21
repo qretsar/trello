@@ -1,4 +1,4 @@
-import { API_KEY } from "@env";
+import { API_KEY, BASE_URL } from "@env";+
 
 export const getDataFromTrello = async (url, signal = false) => {
   try {
@@ -23,7 +23,7 @@ export const getDataFromTrello = async (url, signal = false) => {
 
 export const createBoard = async ({ boardName, token: token, func }) => {
   fetch(
-    `https://api.trello.com/1/boards/?name=${boardName}&key=${API_KEY}&token=${token}`,
+    `${BASE_URL}/boards/?name=${boardName}&key=${API_KEY}&token=${token}`,
     {
       method: "POST",
     }
@@ -38,7 +38,7 @@ export const createBoard = async ({ boardName, token: token, func }) => {
 };
 export const deleteBoard = async (boardId, token) => {
   return fetch(
-    `https://api.trello.com/1/boards/${boardId}?key=${API_KEY}&token=${token}`,
+    `${BASE_URL}/boards/${boardId}?key=${API_KEY}&token=${token}`,
     {
       method: "DELETE",
     }
@@ -52,7 +52,7 @@ export const deleteBoard = async (boardId, token) => {
 
 export const updateBoard = async (boardId, newName, token) => {
   return fetch(
-    `https://api.trello.com/1/boards/${boardId}?name=${newName}&key=${API_KEY}&token=${token}`,
+    `${BASE_URL}/boards/${boardId}?name=${newName}&key=${API_KEY}&token=${token}`,
     {
       method: "PUT",
     }
@@ -65,7 +65,7 @@ export const updateBoard = async (boardId, newName, token) => {
 
 export const createNewList = async (boardID, listName, token) => {
   return fetch(
-    `https://api.trello.com/1/boards/${boardID}/lists?name=${listName}&key=${API_KEY}&token=${token}`,
+    `${BASE_URL}/boards/${boardID}/lists?name=${listName}&key=${API_KEY}&token=${token}`,
     {
       method: "POST",
       headers: {
@@ -81,7 +81,7 @@ export const createNewList = async (boardID, listName, token) => {
 
 export const deleteList = async (listID, token) => {
   return fetch(
-    `https://api.trello.com/1/lists/${listID}/closed?key=${API_KEY}&token=${token}`,
+    `${BASE_URL}/lists/${listID}/closed?key=${API_KEY}&token=${token}`,
     {
       method: "PUT",
       headers: {
@@ -98,7 +98,7 @@ export const deleteList = async (listID, token) => {
 };
 
 export const getLists = async (boardID, apiKey, token) => {
-  const url = `https://api.trello.com/1/boards/${boardID}/lists?key=${apiKey}&token=${token}`;
+  const url = `${BASE_URL}/boards/${boardID}/lists?key=${apiKey}&token=${token}`;
   console.log(url);
   const data = await fetch(url, {
     method: "GET",
@@ -116,7 +116,7 @@ export const getLists = async (boardID, apiKey, token) => {
 
 export const createNewCard = async (listID, cardName, token) => {
   return fetch(
-    `https://api.trello.com/1/cards?idList=${listID}&name=${cardName}&key=${API_KEY}&token=${token}`,
+    `${BASE_URL}/cards?idList=${listID}&name=${cardName}&key=${API_KEY}&token=${token}`,
     {
       method: "POST",
       headers: {
@@ -131,7 +131,7 @@ export const createNewCard = async (listID, cardName, token) => {
 };
 export const deleteCard = async (cardID, token) => {
   return fetch(
-    `https://api.trello.com/1/cards/${cardID}?key=${API_KEY}&token=${token}`,
+    `${BASE_URL}/cards/${cardID}?key=${API_KEY}&token=${token}`,
     {
       method: "DELETE",
       headers: {
@@ -146,7 +146,7 @@ export const deleteCard = async (cardID, token) => {
 };
 export const updateCard = async (cardID, newName, token) => {
   return fetch(
-    `https://api.trello.com/1/cards/${cardID}?name=${newName}&key=${API_KEY}&token=${token}`,
+    `${BASE_URL}/cards/${cardID}?name=${newName}&key=${API_KEY}&token=${token}`,
     {
       method: "PUT",
       headers: {
@@ -162,7 +162,7 @@ export const updateCard = async (cardID, newName, token) => {
 
 export const getCards = async (url) => {
   const data = await fetch(
-    `https://api.trello.com/1/lists/${listID}/cards?key=${API_KEY}&token=${token}`,
+    `${BASE_URL}/lists/${listID}/cards?key=${API_KEY}&token=${token}`,
     {
       method: "GET",
       headers: {
