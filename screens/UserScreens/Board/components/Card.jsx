@@ -23,11 +23,9 @@ const Card = ({ list, token, fetchLists }) => {
     FetchCards();
   }, []);
   const FetchCards = async () => {
-    console.log("URL ", list.id);
     const url = `https://api.trello.com/1/lists/${list.id}/cards?key=${API_KEY}&token=${token}`;
     const data = await getDataFromTrello(url);
     setCards((prev) => (prev = data));
-    console.log(data);
   };
   const handleAddNewCard = () => {
     if (inputText === "") return;

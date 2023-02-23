@@ -26,11 +26,11 @@ export const createBoard = async ({ boardName, token: token, func }) => {
     method: "POST",
   })
     .then((response) => {
-      console.log(`Response: ${response.status} ${response.statusText}`);
+      // console.log(`Response: ${response.status} ${response.statusText}`);
       func && func();
       return true;
     })
-    .then((text) => console.log(text))
+    // .then((text) => console.log(text))
     .catch((err) => console.error(err));
 };
 export const deleteBoard = async (boardId, token) => {
@@ -93,7 +93,7 @@ export const deleteList = async (listID, token) => {
 
 export const getLists = async (boardID, apiKey, token) => {
   const url = `${BASE_URL}/boards/${boardID}/lists?key=${apiKey}&token=${token}`;
-  console.log(url);
+  // console.log(url);
   const data = await fetch(url, {
     method: "GET",
     headers: {
@@ -101,7 +101,7 @@ export const getLists = async (boardID, apiKey, token) => {
     },
   })
     .then((response) => {
-      console.log("response", response);
+      // console.log("response", response);
       return response.json();
     })
     .catch((err) => console.error(err));

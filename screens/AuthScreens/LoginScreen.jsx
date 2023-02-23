@@ -15,7 +15,6 @@ const LoginScreen = () => {
   let webViewRef;
 
   function onLoginSuccess(authToken) {
-    console.log("SUCCESS", authToken);
     const url = `https://api.trello.com/1/members/me/?key=${API_KEY}&token=${authToken}`;
     fetch(url)
       .then((response) => response.json())
@@ -55,7 +54,6 @@ const LoginScreen = () => {
       this.log("Unable to parse webview message: ", e.nativeEvent.data);
       onLoginFailure("Unable to parse webview message");
     }
-    console.log(data.type === "WEBVIEW_LOADED");
     if (data.type === "WEBVIEW_LOADED") {
       if (webViewRef) {
         const message = {

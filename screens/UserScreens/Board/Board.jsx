@@ -17,7 +17,6 @@ const Board = ({ route, navigation }) => {
   const [lists, setLists] = useState([]);
   const [isInputVisible, setIsInputVisible] = useState(false);
   const [inputText, setInputText] = useState("");
-  console.log(API_KEY);
   //FUNCTIONS
   const setNavigationOptions = () =>
     getNavigationOptions({
@@ -51,7 +50,6 @@ const Board = ({ route, navigation }) => {
     }
   };
   useEffect(() => {
-    console.log("BOARD BOARD ");
     setNavigationOptions();
     fetchLists();
   }, []);

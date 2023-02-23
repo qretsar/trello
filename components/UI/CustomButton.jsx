@@ -1,15 +1,15 @@
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import React from 'react';
-import {themeStyle} from '../../styles/defaultSyles';
-import {colors} from '../../styles/colors';
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import React from "react";
+import { themeStyle } from "../../styles/defaultSyles";
+import { colors } from "../../styles/colors";
 
-const CustomButton = ({title, ...props}) => {
+const CustomButton = ({ title, ...props }) => {
   //   console.log();
   const styles = StyleSheet.create({
     container: {
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
       //   height: 25,
       // width: '50%',
       marginHorizontal: props.mh ? props.mh : 10,
@@ -20,19 +20,12 @@ const CustomButton = ({title, ...props}) => {
         : themeStyle.padding.paddingVertical.paddingVertical,
       borderRadius: 5,
       backgroundColor: props.bc ? props.bc : colors.primaryDark,
-      shadowColor: '#000',
-      shadowOffset: {
-        width: 1,
-        height: 1,
-      },
-      shadowOpacity: 0.22,
-      shadowRadius: 2.22,
-      elevation: 3,
+      ...themeStyle.shadow,
     },
     title: {
-      color: props.c ? '#FFFFFF' : '#000000',
+      color: props.c ? "#FFFFFF" : "#000000",
       color: colors.white,
-      fontWeight: 'bold',
+      fontWeight: "bold",
     },
   });
   return (

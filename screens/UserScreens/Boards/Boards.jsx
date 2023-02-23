@@ -18,6 +18,7 @@ import MainContainer from "../../../components/UI/Containers/MainContainer";
 import InputIcon from "../../../components/UI/InputIcon";
 import { getNavigationOptions } from "../../../util/navigationOptions";
 import Break from "../../../components/UI/Breaks/Break";
+import { themeStyle } from "../../../styles/defaultSyles";
 
 const Boards = ({ navigation }) => {
   //STATE
@@ -156,7 +157,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     alignSelf: "center",
-    // width: '80%',
   },
   gradient: {
     flex: 1,
@@ -175,15 +175,8 @@ const styles = StyleSheet.create({
     minWidth: "90%",
     backgroundColor: "#FFFFFF",
     borderRadius: 5,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 1,
-      height: 1,
-    },
-    shadowOpacity: 0.22,
-    shadowRadius: 2.22,
     alignItems: "center",
-    elevation: 3,
+    ...themeStyle.shadow,
   },
 });
 export default Boards;

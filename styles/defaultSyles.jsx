@@ -1,28 +1,16 @@
-const shadow = {
-  shadowColor: '#000',
-  shadowOffset: {
-    width: 0.2,
-    height: 0.4,
-  },
-  shadowOpacity: 0.2,
-  shadowRadius: 1,
-  elevation: 3,
-};
-
 export const themeStyle = {
   borderRadius: {
     borderRadius: 5,
   },
   shadow: {
-    backgroundColor: '#FFFFFF',
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: {
-      width: 1,
-      height: 1,
+      width: 0,
+      height: 2,
     },
-    shadowOpacity: 0.22,
-    shadowRadius: 2.22,
-    elevation: 3,
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
   padding: {
     paddingVertical: {
@@ -34,12 +22,20 @@ export const themeStyle = {
   },
   marginVertical: 2,
   input: {
-    backgroundColor: 'white',
-    width: '100%',
+    backgroundColor: "white",
+    width: "100%",
     padding: 10,
-    textAlign: 'center',
+    textAlign: "center",
     borderRadius: 5,
-    color: 'black',
-    ...shadow,
+    color: "black",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    ...this.shadow,
   },
 };

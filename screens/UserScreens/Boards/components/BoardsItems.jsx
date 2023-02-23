@@ -1,12 +1,12 @@
-import {StyleSheet, TouchableOpacity, View} from 'react-native';
-import React from 'react';
+import { StyleSheet, TouchableOpacity, View } from "react-native";
+import React from "react";
 
-import IconButton from '../../../../components/UI/Buttons/IconButton';
-import {themeStyle} from '../../../../styles/defaultSyles';
-import {colors} from '../../../../styles/colors';
-import RegularText from '../../../../components/Text/RegularText';
-import {EditField} from '../../../../components/EditField/EditField';
-import GlobalModal from '../../../../components/Modals/GlobalModal';
+import IconButton from "../../../../components/UI/Buttons/IconButton";
+import { themeStyle } from "../../../../styles/defaultSyles";
+import { colors } from "../../../../styles/colors";
+import RegularText from "../../../../components/Text/RegularText";
+import { EditField } from "../../../../components/EditField/EditField";
+import GlobalModal from "../../../../components/Modals/GlobalModal";
 
 const BoardsItems = ({
   board,
@@ -16,7 +16,7 @@ const BoardsItems = ({
 }) => {
   const [modalVisible, setModalVisible] = React.useState(false);
   const [editBoardName, setEditBoardName] = React.useState(board.name);
-  const onChangeText = text => {
+  const onChangeText = (text) => {
     setEditBoardName(text);
   };
   const handleModalVisible = () => {
@@ -26,7 +26,7 @@ const BoardsItems = ({
   return (
     <>
       {modalVisible && (
-        <GlobalModal {...{modalVisible, setModalVisible}}>
+        <GlobalModal {...{ modalVisible, setModalVisible }}>
           <EditField
             {...{
               fieldId: board.id,
@@ -46,8 +46,12 @@ const BoardsItems = ({
           style={styles.content}
           onLongPress={() => handleDeleteBoard(board.id, handleModalVisible)}
           onPress={() =>
-            navigation.navigate('Board', {boardId: board.id, name: board.name})
-          }>
+            navigation.navigate("Board", {
+              boardId: board.id,
+              name: board.name,
+            })
+          }
+        >
           <RegularText ta="left" as="flex-start">
             {board?.name}
           </RegularText>
@@ -68,7 +72,7 @@ export default BoardsItems;
 
 const styles = StyleSheet.create({
   image: {
-    display: 'flex',
+    display: "flex",
     backgroundColor: colors.primary,
     width: 30,
     height: 30,
@@ -76,20 +80,18 @@ const styles = StyleSheet.create({
     borderRadius: 3,
   },
   container: {
-    display: 'flex',
+    display: "flex",
     flex: 1,
     paddingHorizontal: 10,
-    alignItems: 'center',
-    flexDirection: 'row',
+    alignItems: "center",
+    flexDirection: "row",
     margin: 1,
-    minWidth: '90%',
-    // backgroundColor: colors.background,
+    minWidth: "90%",
     borderRadius: 5,
-    // ...themeStyle.shadow,
   },
   content: {
     flex: 1,
-    alignItems: 'center',
+    alignItems: "center",
     ...themeStyle.padding.paddingVertical,
   },
 });

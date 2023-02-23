@@ -16,7 +16,6 @@ const Navigation = () => {
   const handleIsUserLoggedIn = (async) => {
     getDataFromAsyncStorage("user").then((data) => {
       if (data) {
-        console.log("data from async storage", data);
         // Set user to data
         setUser(data);
       }
